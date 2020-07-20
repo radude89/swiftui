@@ -67,7 +67,6 @@ struct ContentView: View {
                     .rotation3DEffect(.degrees(self.rotations[number]),
                                     axis: (x: 0, y: 1, z: 0))
                     .scaleEffect(self.scales[number])
-                    
                 }
                 
                 Text("Score: \(score)")
