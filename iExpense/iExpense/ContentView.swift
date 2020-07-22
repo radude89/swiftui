@@ -8,20 +8,45 @@
 
 import SwiftUI
 
-class User: ObservableObject {
-    @Published var firstName = "Bilbo"
-    @Published var lastName = "Baggins"
-}
-
 struct ContentView: View {
-    @ObservedObject var user = User()
+    @ObservedObject var expenses = Expenses()
+    @State private var showingAddExpense = false
     
     var body: some View {
-        VStack {
-            Text("Hello, \(user.firstName) \(user.lastName)!")
-            TextField("Your first name:", text: $user.firstName)
-            TextField("Your last name:", text: $user.lastName)
+        NavigationView {
+            List {
+                ForEach(expenses.items) { item in
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.type)
+                        }
+                        
+                        Spacer()
+                        
+                        AmountText(amount: item.amount)
+                    }
+                }
+            .onDelete(perform: removeItems)
+            }
+            .navigationBarTitle("iExpense")
+            .navigationBarItems(leading: EditButton(),
+                                trailing:
+                Button(action: {
+                    self.showingAddExpense = true
+                }) {
+                    Image(systemName: "plus")
+                }
+            )
+            .sheet(isPresented: $showingAddExpense) {
+                AddView(expenses: self.expenses)
+            }
         }
+    }
+    
+    func removeItems(at offsets: IndexSet) {
+        expenses.items.remove(atOffsets: offsets)
     }
 }
 
