@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MissionView: View {
     let mission: Mission
+    let allMissions: [Mission]
     let astronauts: [CrewMember]
     
     var body: some View {
@@ -22,11 +23,15 @@ struct MissionView: View {
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
                     
+                    Text(self.mission.formattedLaunchDate)
+                        .font(.headline)
+                        .padding()
+                    
                     Text(self.mission.description)
                         .padding()
                     
                     ForEach(self.astronauts, id: \.role) { crewMember in
-                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut)) {
+                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut, missions: self.missions(for: crewMember.astronaut))) {
                             HStack {
                                 Image(crewMember.astronaut.id)
                                     .resizable()
@@ -58,13 +63,11 @@ struct MissionView: View {
 }
 
 extension MissionView {
-    struct CrewMember {
-        let role: String
-        let astronaut: Astronaut
-    }
-    
-    init(mission: Mission, astronauts: [Astronaut]) {
+    init(mission: Mission,
+         astronauts: [Astronaut],
+         allMissions: [Mission]) {
         self.mission = mission
+        self.allMissions = allMissions
         
         var matches: [CrewMember] = []
         
@@ -79,6 +82,12 @@ extension MissionView {
         
         self.astronauts = matches
     }
+    
+    func missions(for astronaut: Astronaut) -> [Mission] {
+        allMissions.filter { mission in
+            mission.crew.first(where: { $0.name == astronaut.id }) != nil
+        }
+    }
 }
 
 struct MissionView_Previews: PreviewProvider {
@@ -86,6 +95,6 @@ struct MissionView_Previews: PreviewProvider {
     static let astronauts: [Astronaut] = Bundle.main.decode("astronauts.json")
     
     static var previews: some View {
-        MissionView(mission: missions[0], astronauts: astronauts)
+        MissionView(mission: missions[0], astronauts: astronauts, allMissions: missions)
     }
 }

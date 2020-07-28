@@ -39,4 +39,8 @@ extension Mission {
         
         return formatter.string(from: launchDate)
     }
+    
+    var formattedCrewNames: String {
+        crew.map { $0.name.capitalized }.joined(separator: ", ")
+    }
 }
