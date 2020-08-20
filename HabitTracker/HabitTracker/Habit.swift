@@ -9,7 +9,7 @@
 import Foundation
 
 struct Habit: Identifiable, Codable {
-    let id = UUID()
+    var id = UUID()
     let name: String
     let description: String
     var repetitionCount = 0
