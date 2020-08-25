@@ -38,6 +38,11 @@ struct DetailView: View {
                     .font(.title)
                     .foregroundColor(.secondary)
                 
+                Text(self.formattedDate)
+                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accentColor)
+                
                 Text(self.book.review ?? "No review")
                     .padding()
                 
@@ -71,6 +76,20 @@ struct DetailView: View {
         
         presentationMode.wrappedValue.dismiss()
     }
+    
+    private static let dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        return dateFormatter
+    }()
+    
+    private var formattedDate: String {
+        guard let date = book.date else {
+            return "N/A"
+        }
+        
+        return Self.dateFormatter.string(from: date)
+    }
 }
 
 struct DetailView_Previews: PreviewProvider {
@@ -83,6 +102,7 @@ struct DetailView_Previews: PreviewProvider {
         book.genre = "Fantasy"
         book.rating = 4
         book.review = "This was a great book!"
+        book.date = Date()
         return NavigationView {
             DetailView(book: book)
         }

@@ -45,7 +45,7 @@ struct AddBookView: View {
                     Button("Save") {
                         self.saveBook()
                     }
-                }
+                }.disabled(genre.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }
             .navigationBarTitle("Add Book")
         }
@@ -57,6 +57,8 @@ struct AddBookView: View {
         book.author = author
         book.rating = Int16(rating)
         book.genre = genre
+        book.review = review
+        book.date = Date()
         
         try? moc.save()
         

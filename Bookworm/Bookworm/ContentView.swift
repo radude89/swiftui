@@ -13,7 +13,8 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: Book.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \Book.title, ascending: true),
-        NSSortDescriptor(keyPath: \Book.author, ascending: true)
+        NSSortDescriptor(keyPath: \Book.author, ascending: true),
+        NSSortDescriptor(keyPath: \Book.date, ascending: false)
     ]) var books: FetchedResults<Book>
     
     @State private var showingAddScreen = false
@@ -29,6 +30,7 @@ struct ContentView: View {
                         VStack(alignment: .leading) {
                             Text(book.title ?? "Unknown title")
                                 .font(.headline)
+                                .foregroundColor(book.rating == 1 ? .red : .primary)
                             
                             Text(book.author ?? "Unknown author")
                                 .foregroundColor(.secondary)
