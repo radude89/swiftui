@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="UserC" representedClassName="UserC" syncable="YES" codeGenerationType="class">
+    <entity name="FriendC" representedClassName="FriendC" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserC" inverseName="friends" inverseEntity="UserC"/>
+    </entity>
+    <entity name="TagC" representedClassName="TagC" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="UserC" inverseName="tags" inverseEntity="UserC"/>
+    </entity>
+    <entity name="UserC" representedClassName="UserC" syncable="YES">
         <attribute name="about" optional="YES" attributeType="String"/>
         <attribute name="address" optional="YES" attributeType="String"/>
         <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -9,8 +18,13 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="registered" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FriendC" inverseName="friends" inverseEntity="FriendC"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TagC" inverseName="users" inverseEntity="TagC"/>
     </entity>
     <elements>
-        <element name="UserC" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="UserC" positionX="-63" positionY="-18" width="128" height="208"/>
+        <element name="TagC" positionX="-54" positionY="54" width="128" height="73"/>
+        <element name="FriendC" positionX="-36" positionY="81" width="128" height="88"/>
     </elements>
 </model>

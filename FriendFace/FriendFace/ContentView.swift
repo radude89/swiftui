@@ -7,11 +7,14 @@
 //
 
 import SwiftUI
+import CoreData
 
-// MARK: - Content
+// MARK: - ContentView
 struct ContentView: View {
     
-    @State private var users = [User]()
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: UserC.entity(), sortDescriptors: []) var users: FetchedResults<UserC>
+    
     private let dataLoader = DataLoader()
     
     var body: some View {
@@ -20,8 +23,7 @@ struct ContentView: View {
                 NavigationLink(
                     destination: UserDetailView(
                         user: user,
-                        allUsers: self.users,
-                        name: nil
+                        allUsers: self.users
                     )
                 ) {
                     UserView(user: user)
@@ -29,38 +31,51 @@ struct ContentView: View {
             }
             .navigationBarTitle("Friend Face")
         }
-        .onAppear(perform: fetchUsers)
+        .onAppear(perform: loadUsers)
     }
     
-    private func fetchUsers() {
-        dataLoader.fetchData { users in
-            self.users = users
+    private func loadUsers() {
+        if users.isEmpty {
+            fetchUsersFromNetwork()
         }
+    }
+    
+    private func fetchUsersFromNetwork() {
+        dataLoader.fetchData { users in
+            users.forEach { fetchedUser in
+                _ = UserC(context: self.moc, user: fetchedUser)
+                try? self.moc.save()
+            }
+        }
+    }
+}
+
+// MARK: - UserView
+struct UserView: View {
+    var user: UserC
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(self.user.wrappedEmail)
+                .font(.headline)
+            Text(self.user.wrappedCompany)
+                .font(.caption)
+        }
+    }
+}
+
+// MARK: - Previews
+struct UserView_Previews: PreviewProvider {
+    static let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    
+    static var previews: some View {
+        let user = UserC(context: moc, user: User.demoUser)
+        return UserView(user: user)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-// MARK: - UserView
-struct UserView: View {
-    var user: User
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(self.user.email)
-                .font(.headline)
-            Text(self.user.company)
-                .font(.caption)
-        }
-    }
-}
-
-struct UserView_Previews: PreviewProvider {
-    static var previews: some View {
-        UserView(user: User.demoUser)
     }
 }
