@@ -14,7 +14,7 @@ struct RectangleDrag: View {
     var body: some View {
         Button("Tap Me") {
             withAnimation(.interpolatingSpring(stiffness: 5, damping: 1)) {
-                self.animationAmount += 360
+                animationAmount += 360
             }
         }
         .padding(40)

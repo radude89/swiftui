@@ -18,8 +18,8 @@ struct ColorCyclingCircle: View {
                 Circle()
                     .inset(by: CGFloat(value))
                     .strokeBorder(LinearGradient(gradient: Gradient(colors: [
-                        self.color(for: value, brightness: 1),
-                        self.color(for: value, brightness: 0.5)
+                        color(for: value, brightness: 1),
+                        color(for: value, brightness: 0.5)
                     ]), startPoint: .top, endPoint: .bottom), lineWidth: 2)
             }
             .drawingGroup()
@@ -27,7 +27,7 @@ struct ColorCyclingCircle: View {
     }
 
     func color(for value: Int, brightness: Double) -> Color {
-        var targetHue = Double(value) / Double(self.steps) + self.amount
+        var targetHue = Double(value) / Double(steps) + amount
 
         if targetHue > 1 {
             targetHue -= 1

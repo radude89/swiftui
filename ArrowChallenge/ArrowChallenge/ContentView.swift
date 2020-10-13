@@ -49,7 +49,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            ColorCyclingRect(amount: self.colorCycle)
+            ColorCyclingRect(amount: colorCycle)
                 .frame(width: 300, height: 300)
             
             Slider(value: $colorCycle)
@@ -65,7 +65,7 @@ struct ContentView: View {
                     .frame(width: 20, height: 100)
                     .onTapGesture {
                         withAnimation {
-                            self.insetAmount = CGFloat.random(in: 1...9)
+                            insetAmount = CGFloat.random(in: 1...9)
                         }
                     }
             }

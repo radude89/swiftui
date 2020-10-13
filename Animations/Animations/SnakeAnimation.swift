@@ -17,20 +17,20 @@ struct SnakeAnimation: View {
     var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<letters.count) { num in
-                Text(String(self.letters[num]))
+                Text(String(letters[num]))
                     .padding(5)
                     .font(.title)
-                    .background(self.enabled ? Color.blue : Color.red)
-                    .offset(self.dragAmount)
+                    .background(enabled ? Color.blue : Color.red)
+                    .offset(dragAmount)
                     .animation(Animation.default.delay(Double(num) / 20))
             }
         }
         .gesture(
             DragGesture()
-                .onChanged { self.dragAmount = $0.translation }
+                .onChanged { dragAmount = $0.translation }
                 .onEnded { _ in
-                    self.dragAmount = .zero
-                    self.enabled.toggle()
+                    dragAmount = .zero
+                    enabled.toggle()
                 }
         )
     }

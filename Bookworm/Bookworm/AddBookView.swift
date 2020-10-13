@@ -43,7 +43,7 @@ struct AddBookView: View {
                 
                 Section {
                     Button("Save") {
-                        self.saveBook()
+                        saveBook()
                     }
                 }.disabled(genre.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
             }

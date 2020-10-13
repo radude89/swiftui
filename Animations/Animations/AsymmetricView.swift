@@ -1,5 +1,5 @@
 //
-//  Asymmetric.swift
+//  AsymmetricView.swift
 //  Animations
 //
 //  Created by Radu Dan on 14/07/2020.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct Asymmetric: View {
+struct AsymmetricView: View {
     @State private var isShowingRed = false
 
     var body: some View {
         VStack {
             Button("Tap me") {
                 withAnimation {
-                    self.isShowingRed.toggle()
+                    isShowingRed.toggle()
                 }
             }
             
@@ -31,6 +31,6 @@ struct Asymmetric: View {
 
 struct Asymmetric_Previews: PreviewProvider {
     static var previews: some View {
-        Asymmetric()
+        AsymmetricView()
     }
 }

@@ -10,7 +10,7 @@
 		F78FDCB824BD75B900EB5BAD /* RotatingAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FDCB724BD75B900EB5BAD /* RotatingAnimations.swift */; };
 		F78FDCBA24BD77DF00EB5BAD /* RectangleDrag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FDCB924BD77DF00EB5BAD /* RectangleDrag.swift */; };
 		F78FDCBC24BD782800EB5BAD /* SnakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FDCBB24BD782800EB5BAD /* SnakeAnimation.swift */; };
-		F78FDCBE24BD799400EB5BAD /* Asymmetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FDCBD24BD799400EB5BAD /* Asymmetric.swift */; };
+		F78FDCBE24BD799400EB5BAD /* AsymmetricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78FDCBD24BD799400EB5BAD /* AsymmetricView.swift */; };
 		F7B443E524BC1C8300138B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B443E424BC1C8300138B54 /* AppDelegate.swift */; };
 		F7B443E724BC1C8300138B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B443E624BC1C8300138B54 /* SceneDelegate.swift */; };
 		F7B443E924BC1C8300138B54 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7B443E824BC1C8300138B54 /* ContentView.swift */; };
@@ -25,7 +25,7 @@
 		F78FDCB724BD75B900EB5BAD /* RotatingAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotatingAnimations.swift; sourceTree = "<group>"; };
 		F78FDCB924BD77DF00EB5BAD /* RectangleDrag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleDrag.swift; sourceTree = "<group>"; };
 		F78FDCBB24BD782800EB5BAD /* SnakeAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnakeAnimation.swift; sourceTree = "<group>"; };
-		F78FDCBD24BD799400EB5BAD /* Asymmetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asymmetric.swift; sourceTree = "<group>"; };
+		F78FDCBD24BD799400EB5BAD /* AsymmetricView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsymmetricView.swift; sourceTree = "<group>"; };
 		F7B443E124BC1C8300138B54 /* Animations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Animations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7B443E424BC1C8300138B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7B443E624BC1C8300138B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 				F7B443E624BC1C8300138B54 /* SceneDelegate.swift */,
 				F7B443FA24BC21ED00138B54 /* StepperAnimations.swift */,
 				F7B443F824BC205500138B54 /* TappingButton.swift */,
-				F78FDCBD24BD799400EB5BAD /* Asymmetric.swift */,
+				F78FDCBD24BD799400EB5BAD /* AsymmetricView.swift */,
 				F7B443E824BC1C8300138B54 /* ContentView.swift */,
 				F78FDCB924BD77DF00EB5BAD /* RectangleDrag.swift */,
 				F78FDCBB24BD782800EB5BAD /* SnakeAnimation.swift */,
@@ -172,7 +172,7 @@
 				F7B443E724BC1C8300138B54 /* SceneDelegate.swift in Sources */,
 				F78FDCBA24BD77DF00EB5BAD /* RectangleDrag.swift in Sources */,
 				F7B443E924BC1C8300138B54 /* ContentView.swift in Sources */,
-				F78FDCBE24BD799400EB5BAD /* Asymmetric.swift in Sources */,
+				F78FDCBE24BD799400EB5BAD /* AsymmetricView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

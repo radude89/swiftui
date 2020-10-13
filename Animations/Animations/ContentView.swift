@@ -35,13 +35,14 @@ struct ContentView: View {
     @State private var isShowingRed = false
 
     var body: some View {
+//        SnakeAnimation()
         VStack {
             Button("Tap me") {
                 withAnimation {
                     self.isShowingRed.toggle()
                 }
             }
-            
+
             if isShowingRed {
                 Rectangle()
                     .fill(Color.red)

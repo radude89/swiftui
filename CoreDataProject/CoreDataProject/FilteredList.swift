@@ -18,7 +18,7 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
 
     var body: some View {
         List(fetchRequest.wrappedValue, id: \.self) { result in
-            self.content(result)
+            content(result)
         }
     }
 

@@ -18,7 +18,7 @@ struct StepperAnimations: View {
             Spacer()
 
             Button("Tap Me") {
-                self.animationAmount += 1
+                animationAmount += 1
             }
             .padding(40)
             .background(Color.red)

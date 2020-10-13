@@ -41,7 +41,7 @@ struct ContentView: View {
             }
             .navigationBarTitle("Bookworm")
             .navigationBarItems(leading: EditButton(), trailing: Button(action: {
-                self.showingAddScreen.toggle()
+                showingAddScreen.toggle()
             }) {
                 Image(systemName: "plus")
             })

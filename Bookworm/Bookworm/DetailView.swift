@@ -21,10 +21,10 @@ struct DetailView: View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(self.book.genre ?? "Fantasy")
+                    Image(book.genre ?? "Fantasy")
                         .frame(maxWidth: geometry.size.width)
                     
-                    Text(self.book.genre?.uppercased() ?? "Fantasy")
+                    Text(book.genre?.uppercased() ?? "Fantasy")
                         .font(.caption)
                         .fontWeight(.black)
                         .padding()
@@ -34,19 +34,19 @@ struct DetailView: View {
                         .offset(x: -5, y: -5)
                 }
                 
-                Text(self.book.author ?? "Unknown author")
+                Text(book.author ?? "Unknown author")
                     .font(.title)
                     .foregroundColor(.secondary)
                 
-                Text(self.formattedDate)
+                Text(formattedDate)
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .foregroundColor(.accentColor)
                 
-                Text(self.book.review ?? "No review")
+                Text(book.review ?? "No review")
                     .padding()
                 
-                RatingView(rating: .constant(Int(self.book.rating)))
+                RatingView(rating: .constant(Int(book.rating)))
                     .font(.largeTitle)
                 
                 Spacer()
@@ -58,13 +58,13 @@ struct DetailView: View {
                 title: Text("Delete book"),
                 message: Text("Are you sure?"),
                 primaryButton: .destructive(Text("Delete")) {
-                    self.deleteBook()
+                    deleteBook()
                 },
                 secondaryButton: .cancel()
             )
         }
         .navigationBarItems(trailing: Button(action: {
-            self.showingDeleteAlert = true
+            showingDeleteAlert = true
         }) {
             Image(systemName: "trash")
         })

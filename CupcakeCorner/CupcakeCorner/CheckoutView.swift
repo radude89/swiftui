@@ -24,11 +24,11 @@ struct CheckoutView: View {
                         .scaledToFit()
                         .frame(width: geo.size.width)
                     
-                    Text("Your total is: $\(self.checkoutSummary.order.cost, specifier: "%.2f")")
+                    Text("Your total is: $\(checkoutSummary.order.cost, specifier: "%.2f")")
                         .font(.title)
                     
                     Button("Place order") {
-                        self.placeOrder()
+                        placeOrder()
                     }
                     .padding()
                 }
@@ -59,7 +59,7 @@ struct CheckoutView: View {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
-                self.showAlert(
+                showAlert(
                     title: "Error",
                     message: "No data in response.\nError description: \(error?.localizedDescription ?? "Unknown error")."
                 )
@@ -67,12 +67,12 @@ struct CheckoutView: View {
             }
             
             if let decodedSummary = try? JSONDecoder().decode(CheckoutSummary.self, from: data) {
-                self.showAlert(
+                showAlert(
                     title: "Thank you!",
                     message: "Your order for \(decodedSummary.order.quantity) x \(Order.types[decodedSummary.order.type].lowercased()) cupcakes is on its way!"
                 )
             } else {
-                self.showAlert(
+                showAlert(
                     title: "Error",
                     message: "Something went wrong. Please retry your order."
                 )

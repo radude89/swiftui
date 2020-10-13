@@ -45,7 +45,7 @@ struct TaylorSwiftView: View {
                 let decodedResponse = try? JSONDecoder().decode(Response.self, from: data) {
                 
                 DispatchQueue.main.async {
-                    self.results = decodedResponse.results
+                    results = decodedResponse.results
                 }
                 
                 return

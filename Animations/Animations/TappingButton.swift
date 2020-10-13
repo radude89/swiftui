@@ -30,7 +30,7 @@ struct TappingButton: View {
                 )
         )
         .onAppear {
-            self.animationAmount = 2
+            animationAmount = 2
         }
     }
 }

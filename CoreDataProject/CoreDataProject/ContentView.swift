@@ -49,15 +49,15 @@ struct ContentView: View {
                     film4.director = "Quentin Tarantino"
                     film4.year = 2003
                     
-                    try? self.moc.save()
+                    try? moc.save()
                 }
                 
                 Button("Show P") {
-                    self.titleFilter = "P"
+                    titleFilter = "P"
                 }
                 
                 Button("Show K") {
-                    self.titleFilter = "K"
+                    titleFilter = "K"
                 }
             }
         }
