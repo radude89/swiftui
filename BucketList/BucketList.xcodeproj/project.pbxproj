@@ -18,6 +18,7 @@
 		F74828EF253D4AC500EED22A /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74828EE253D4AC500EED22A /* FileManagerExtensions.swift */; };
 		F74828F2253D4EAA00EED22A /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74828F1253D4EAA00EED22A /* StateView.swift */; };
 		F74828F5253D4F2200EED22A /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74828F4253D4F2200EED22A /* MapView.swift */; };
+		F7824421253FE3CE00BE9687 /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7824420253FE3CE00BE9687 /* MKPointAnnotation-Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F74828EE253D4AC500EED22A /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		F74828F1253D4EAA00EED22A /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		F74828F4253D4F2200EED22A /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F7824420253FE3CE00BE9687 /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				F735E0EF253E9FEB004125BF /* EditView.swift */,
 				F735E0F3253EA13F004125BF /* Result.swift */,
 				F735E0EB253E9FAE004125BF /* MKPointAnnotation-ObservableObject.swift */,
+				F7824420253FE3CE00BE9687 /* MKPointAnnotation-Codable.swift */,
 				F735E0E7253E9A18004125BF /* AuthenticateView.swift */,
 				F74828F1253D4EAA00EED22A /* StateView.swift */,
 				F74828EE253D4AC500EED22A /* FileManagerExtensions.swift */,
@@ -165,6 +168,7 @@
 				F735E0F0253E9FEB004125BF /* EditView.swift in Sources */,
 				F735E0EC253E9FAE004125BF /* MKPointAnnotation-ObservableObject.swift in Sources */,
 				F74828F5253D4F2200EED22A /* MapView.swift in Sources */,
+				F7824421253FE3CE00BE9687 /* MKPointAnnotation-Codable.swift in Sources */,
 				F74828F2253D4EAA00EED22A /* StateView.swift in Sources */,
 				F74828EF253D4AC500EED22A /* FileManagerExtensions.swift in Sources */,
 				F735E0E8253E9A18004125BF /* AuthenticateView.swift in Sources */,

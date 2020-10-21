@@ -26,4 +26,10 @@ extension FileManager {
         let readURL = url.appendingPathComponent(fileName)
         return try String(contentsOf: readURL)
     }
+    
+    static func readData(from url: URL = documentsDirectoryURL,
+                     fileName: String) throws -> Data {
+        let readURL = url.appendingPathComponent(fileName)
+        return try Data(contentsOf: readURL)
+    }
 }
