@@ -7,27 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F73016E62463DDBA00DA680B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73016E52463DDBA00DA680B /* AppDelegate.swift */; };
-		F73016E82463DDBA00DA680B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73016E72463DDBA00DA680B /* SceneDelegate.swift */; };
-		F73016EA2463DDBA00DA680B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73016E92463DDBA00DA680B /* ContentView.swift */; };
-		F73016EC2463DDBA00DA680B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73016EB2463DDBA00DA680B /* Assets.xcassets */; };
-		F73016EF2463DDBA00DA680B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73016EE2463DDBA00DA680B /* Preview Assets.xcassets */; };
-		F73016F22463DDBA00DA680B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73016F02463DDBA00DA680B /* LaunchScreen.storyboard */; };
+		F7BC6B9C25429EE300575B55 /* AccessibilityAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BC6B9B25429EE300575B55 /* AccessibilityAppApp.swift */; };
+		F7BC6B9E25429EE300575B55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BC6B9D25429EE300575B55 /* ContentView.swift */; };
+		F7BC6BA025429EE400575B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BC6B9F25429EE400575B55 /* Assets.xcassets */; };
+		F7BC6BA325429EE400575B55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7BC6BA225429EE400575B55 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F73016E22463DDBA00DA680B /* GuessTheFlag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessTheFlag.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		F73016E52463DDBA00DA680B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F73016E72463DDBA00DA680B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F73016E92463DDBA00DA680B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		F73016EB2463DDBA00DA680B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F73016EE2463DDBA00DA680B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		F73016F12463DDBA00DA680B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F73016F32463DDBA00DA680B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7BC6B9825429EE300575B55 /* AccessibilityApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AccessibilityApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7BC6B9B25429EE300575B55 /* AccessibilityAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityAppApp.swift; sourceTree = "<group>"; };
+		F7BC6B9D25429EE300575B55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F7BC6B9F25429EE400575B55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F7BC6BA225429EE400575B55 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F7BC6BA425429EE400575B55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F73016DF2463DDBA00DA680B /* Frameworks */ = {
+		F7BC6B9525429EE300575B55 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,40 +33,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F73016D92463DDBA00DA680B = {
+		F7BC6B8F25429EE300575B55 = {
 			isa = PBXGroup;
 			children = (
-				F73016E42463DDBA00DA680B /* GuessTheFlag */,
-				F73016E32463DDBA00DA680B /* Products */,
+				F7BC6B9A25429EE300575B55 /* AccessibilityApp */,
+				F7BC6B9925429EE300575B55 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F73016E32463DDBA00DA680B /* Products */ = {
+		F7BC6B9925429EE300575B55 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F73016E22463DDBA00DA680B /* GuessTheFlag.app */,
+				F7BC6B9825429EE300575B55 /* AccessibilityApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F73016E42463DDBA00DA680B /* GuessTheFlag */ = {
+		F7BC6B9A25429EE300575B55 /* AccessibilityApp */ = {
 			isa = PBXGroup;
 			children = (
-				F73016E52463DDBA00DA680B /* AppDelegate.swift */,
-				F73016E72463DDBA00DA680B /* SceneDelegate.swift */,
-				F73016E92463DDBA00DA680B /* ContentView.swift */,
-				F73016EB2463DDBA00DA680B /* Assets.xcassets */,
-				F73016F02463DDBA00DA680B /* LaunchScreen.storyboard */,
-				F73016F32463DDBA00DA680B /* Info.plist */,
-				F73016ED2463DDBA00DA680B /* Preview Content */,
+				F7BC6B9B25429EE300575B55 /* AccessibilityAppApp.swift */,
+				F7BC6B9D25429EE300575B55 /* ContentView.swift */,
+				F7BC6B9F25429EE400575B55 /* Assets.xcassets */,
+				F7BC6BA425429EE400575B55 /* Info.plist */,
+				F7BC6BA125429EE400575B55 /* Preview Content */,
 			);
-			path = GuessTheFlag;
+			path = AccessibilityApp;
 			sourceTree = "<group>";
 		};
-		F73016ED2463DDBA00DA680B /* Preview Content */ = {
+		F7BC6BA125429EE400575B55 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				F73016EE2463DDBA00DA680B /* Preview Assets.xcassets */,
+				F7BC6BA225429EE400575B55 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -78,39 +72,38 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F73016E12463DDBA00DA680B /* GuessTheFlag */ = {
+		F7BC6B9725429EE300575B55 /* AccessibilityApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F73016F62463DDBA00DA680B /* Build configuration list for PBXNativeTarget "GuessTheFlag" */;
+			buildConfigurationList = F7BC6BA725429EE400575B55 /* Build configuration list for PBXNativeTarget "AccessibilityApp" */;
 			buildPhases = (
-				F73016DE2463DDBA00DA680B /* Sources */,
-				F73016DF2463DDBA00DA680B /* Frameworks */,
-				F73016E02463DDBA00DA680B /* Resources */,
+				F7BC6B9425429EE300575B55 /* Sources */,
+				F7BC6B9525429EE300575B55 /* Frameworks */,
+				F7BC6B9625429EE300575B55 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = GuessTheFlag;
-			productName = GuessTheFlag;
-			productReference = F73016E22463DDBA00DA680B /* GuessTheFlag.app */;
+			name = AccessibilityApp;
+			productName = AccessibilityApp;
+			productReference = F7BC6B9825429EE300575B55 /* AccessibilityApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F73016DA2463DDBA00DA680B /* Project object */ = {
+		F7BC6B9025429EE300575B55 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1140;
+				LastSwiftUpdateCheck = 1210;
 				LastUpgradeCheck = 1210;
-				ORGANIZATIONNAME = "Radu Dan";
 				TargetAttributes = {
-					F73016E12463DDBA00DA680B = {
-						CreatedOnToolsVersion = 11.4.1;
+					F7BC6B9725429EE300575B55 = {
+						CreatedOnToolsVersion = 12.1;
 					};
 				};
 			};
-			buildConfigurationList = F73016DD2463DDBA00DA680B /* Build configuration list for PBXProject "GuessTheFlag" */;
+			buildConfigurationList = F7BC6B9325429EE300575B55 /* Build configuration list for PBXProject "AccessibilityApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,55 +111,42 @@
 				en,
 				Base,
 			);
-			mainGroup = F73016D92463DDBA00DA680B;
-			productRefGroup = F73016E32463DDBA00DA680B /* Products */;
+			mainGroup = F7BC6B8F25429EE300575B55;
+			productRefGroup = F7BC6B9925429EE300575B55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F73016E12463DDBA00DA680B /* GuessTheFlag */,
+				F7BC6B9725429EE300575B55 /* AccessibilityApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F73016E02463DDBA00DA680B /* Resources */ = {
+		F7BC6B9625429EE300575B55 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F73016F22463DDBA00DA680B /* LaunchScreen.storyboard in Resources */,
-				F73016EF2463DDBA00DA680B /* Preview Assets.xcassets in Resources */,
-				F73016EC2463DDBA00DA680B /* Assets.xcassets in Resources */,
+				F7BC6BA325429EE400575B55 /* Preview Assets.xcassets in Resources */,
+				F7BC6BA025429EE400575B55 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F73016DE2463DDBA00DA680B /* Sources */ = {
+		F7BC6B9425429EE300575B55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F73016E62463DDBA00DA680B /* AppDelegate.swift in Sources */,
-				F73016E82463DDBA00DA680B /* SceneDelegate.swift in Sources */,
-				F73016EA2463DDBA00DA680B /* ContentView.swift in Sources */,
+				F7BC6B9E25429EE300575B55 /* ContentView.swift in Sources */,
+				F7BC6B9C25429EE300575B55 /* AccessibilityAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		F73016F02463DDBA00DA680B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F73016F12463DDBA00DA680B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		F73016F42463DDBA00DA680B /* Debug */ = {
+		F7BC6BA525429EE400575B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -217,7 +197,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -227,7 +207,7 @@
 			};
 			name = Debug;
 		};
-		F73016F52463DDBA00DA680B /* Release */ = {
+		F7BC6BA625429EE400575B55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -272,7 +252,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -282,38 +262,44 @@
 			};
 			name = Release;
 		};
-		F73016F72463DDBA00DA680B /* Debug */ = {
+		F7BC6BA825429EE400575B55 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GuessTheFlag/Info.plist;
+				INFOPLIST_FILE = AccessibilityApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.GuessTheFlag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.AccessibilityApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F73016F82463DDBA00DA680B /* Release */ = {
+		F7BC6BA925429EE400575B55 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"GuessTheFlag/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"AccessibilityApp/Preview Content\"";
+				DEVELOPMENT_TEAM = 42L6GB6DU6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = GuessTheFlag/Info.plist;
+				INFOPLIST_FILE = AccessibilityApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.GuessTheFlag;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rdan.AccessibilityApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,25 +309,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F73016DD2463DDBA00DA680B /* Build configuration list for PBXProject "GuessTheFlag" */ = {
+		F7BC6B9325429EE300575B55 /* Build configuration list for PBXProject "AccessibilityApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F73016F42463DDBA00DA680B /* Debug */,
-				F73016F52463DDBA00DA680B /* Release */,
+				F7BC6BA525429EE400575B55 /* Debug */,
+				F7BC6BA625429EE400575B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F73016F62463DDBA00DA680B /* Build configuration list for PBXNativeTarget "GuessTheFlag" */ = {
+		F7BC6BA725429EE400575B55 /* Build configuration list for PBXNativeTarget "AccessibilityApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F73016F72463DDBA00DA680B /* Debug */,
-				F73016F82463DDBA00DA680B /* Release */,
+				F7BC6BA825429EE400575B55 /* Debug */,
+				F7BC6BA925429EE400575B55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F73016DA2463DDBA00DA680B /* Project object */;
+	rootObject = F7BC6B9025429EE300575B55 /* Project object */;
 }

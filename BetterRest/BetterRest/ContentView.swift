@@ -60,6 +60,7 @@ struct ContentView: View {
                     Stepper(value: $sleepAmont, in: 4...12, step: 0.25) {
                         Text("\(sleepAmont, specifier: "%g") hours")
                     }
+                    .accessibilityValue(formattedSleepAmount)
                 }
                 
                 Section(header:
@@ -85,6 +86,21 @@ struct ContentView: View {
             .navigationBarTitle("Better rest")
         }
     }
+    
+    private var formattedSleepAmount: String {
+        guard let formattedAmount = Self.spellOutNumber.string(from: NSNumber(value: sleepAmont)) else {
+            return "\(sleepAmont) hours of sleep."
+        }
+        
+        return "\(formattedAmount) hours of sleep."
+    }
+    
+    private static var spellOutNumber: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .spellOut
+        return formatter
+    }()
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

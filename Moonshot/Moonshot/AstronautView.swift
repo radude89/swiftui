@@ -17,19 +17,19 @@ struct AstronautView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 VStack {
-                    Image(self.astronaut.id)
+                    Image(astronaut.id)
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width)
                     
-                    Text(self.astronaut.description)
+                    Text(astronaut.description)
                         .padding()
                         .layoutPriority(1)
                     
                     Text("List of missions")
                         .font(.headline)
                     
-                    List(self.missions) { mission in
+                    List(missions) { mission in
                         Image(mission.imageName)
                             .resizable()
                             .scaledToFit()
@@ -40,6 +40,11 @@ struct AstronautView: View {
                                 .font(.headline)
                             Text(mission.formattedLaunchDate)
                         }
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(
+                            Text("Mission \(mission.displayName), launched \(mission.formattedLaunchDate)")
+                        
+                        )
                     }
                 }
             }

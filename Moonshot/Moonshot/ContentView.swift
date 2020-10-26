@@ -18,25 +18,29 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(missions) { mission in
-                NavigationLink(destination: MissionView(mission: mission, astronauts: self.astronauts, allMissions: self.missions)) {
+                NavigationLink(destination: MissionView(mission: mission, astronauts: astronauts, allMissions: missions)) {
                     Image(mission.imageName)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 44, height: 44)
+                        .accessibility(removeTraits: .isImage)
                     
                     VStack(alignment: .leading) {
                         Text(mission.displayName)
                             .font(.headline)
-                        Text(self.showCrewNames ?
+                        Text(showCrewNames ?
                             mission.formattedCrewNames :
                             mission.formattedLaunchDate)
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(
+                        Text("Mission \(mission.displayName),  \(showCrewNames ? mission.formattedCrewNames : mission.formattedLaunchDate)"))
                 }
             }
             .navigationBarTitle("Moonshoot")
             .navigationBarItems(trailing:
                 Button(buttonTitle) {
-                    self.toggleView()
+                    toggleView()
             })
         }
     }

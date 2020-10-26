@@ -17,21 +17,22 @@ struct MissionView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 VStack {
-                    Image(self.mission.imageName)
+                    Image(mission.imageName)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
+                        .accessibility(removeTraits: .isImage)
                     
-                    Text(self.mission.formattedLaunchDate)
+                    Text(mission.formattedLaunchDate)
                         .font(.headline)
                         .padding()
                     
-                    Text(self.mission.description)
+                    Text(mission.description)
                         .padding()
                     
-                    ForEach(self.astronauts, id: \.role) { crewMember in
-                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut, missions: self.missions(for: crewMember.astronaut))) {
+                    ForEach(astronauts, id: \.role) { crewMember in
+                        NavigationLink(destination: AstronautView(astronaut: crewMember.astronaut, missions: missions(for: crewMember.astronaut))) {
                             HStack {
                                 Image(crewMember.astronaut.id)
                                     .resizable()
@@ -45,6 +46,12 @@ struct MissionView: View {
                                     Text(crewMember.role)
                                         .foregroundColor(.secondary)
                                 }
+                                .accessibilityElement(children: .ignore)
+                                .accessibilityLabel(
+                                    Text(
+                                        "Astronaut \(crewMember.astronaut.name), \(crewMember.role)"
+                                    )
+                                )
                                 
                                 Spacer()
                             }
