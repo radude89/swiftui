@@ -6,23 +6,29 @@
 //
 
 import SwiftUI
+import MapKit
 
 // MARK: - ContentView
 struct ContentView: View {
     
     private let fileName = "saved-users"
     
+    @State private var users: [User] = []
     @State private var currentImage: UIImage?
     @State private var enteredName = ""
-    @State private var users: [User] = []
+    @State private var location: CLLocationCoordinate2D?
+    
     @State private var showImagePicker = false
     @State private var showEnterNameView = false
+    @State private var showAlert = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = ""
     
     var body: some View {
         NavigationView {
             List(users) { user in
                 NavigationLink(
-                    destination: UserView(user: user)
+                    destination: UserDetailView(user: user)
                 ) {
                     Text("\(user.name)")
                 }
@@ -35,11 +41,14 @@ struct ContentView: View {
             .sheet(isPresented: $showImagePicker, onDismiss: {
                 showEnterNameView = true
             }) {
-                ImagePicker(image: $currentImage)
+                ImagePicker(image: $currentImage, location: $location)
             }
         }
         .sheet(isPresented: $showEnterNameView, onDismiss: reloadData) {
             EnterNameView(name: $enteredName)
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(alertTitle), message: Text(alertMessage))
         }
     }
 }
@@ -48,21 +57,37 @@ struct ContentView: View {
 private extension ContentView {
     func reloadData() {
         guard let image = currentImage else {
-            print("Image is nil")
+            showErrorAlert(message: "Image is nil.")
             return
         }
         
         guard !enteredName.isEmpty else {
-            print("Entered name is empty")
+            showErrorAlert(message: "Entered name is empty.")
             return
         }
         
-        let user = User(name: enteredName, image: image)
+        guard let location = location else {
+            showErrorAlert(message: "Location is unknown.")
+            return
+        }
+        
+        let user = User(
+            name: enteredName,
+            image: image,
+            latitude: location.latitude,
+            longitude: location.longitude
+        )
         users.append(user)
         
         saveData()
         
         enteredName = ""
+    }
+    
+    func showErrorAlert(message: String) {
+        alertTitle = "Error"
+        alertMessage = message
+        showAlert = true
     }
     
     func loadData() {

@@ -22,7 +22,7 @@ struct UserView: View {
                     .font(.headline)
                     .padding()
             }
-        }
+        }.navigationBarTitle("Profile Photo")
     }
     
     private var userImage: Image {
@@ -31,9 +31,7 @@ struct UserView: View {
 }
 
 struct UserView_Previews: PreviewProvider {
-    static let demoUser = User(name: "Demo User", image: UIImage(named: "DemoUser")!)
-    
     static var previews: some View {
-        UserView(user: demoUser)
+        UserView(user: Mocks.demoUser)
     }
 }

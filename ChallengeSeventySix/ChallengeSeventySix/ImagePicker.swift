@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import MapKit
 
 // MARK: - ImagePicker
 struct ImagePicker: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     @Binding var image: UIImage?
+    @Binding var location: CLLocationCoordinate2D?
+    
+    private let locationFetcher = LocationFetcher()
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
+        locationFetcher.start()
+        
         let picker = UIImagePickerController()
         picker.delegate = context.coordinator
         return picker
@@ -39,6 +45,10 @@ extension ImagePicker {
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let image = info[.originalImage] as? UIImage {
                 parent.image = image
+            }
+            
+            if let location = parent.locationFetcher.lastKnownLocation {
+                parent.location = location
             }
             
             parent.presentationMode.wrappedValue.dismiss()
