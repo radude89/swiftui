@@ -16,6 +16,9 @@ struct ProspectsView: View {
     
     @EnvironmentObject var prospects: Prospects
     @State private var isShowingScanner = false
+    @State private var isShowingActionSheet = false
+    @State private var filterByName = false
+    
     let filter: FilterType
     
     var title: String {
@@ -32,28 +35,45 @@ struct ProspectsView: View {
     }
     
     var filteredProspects: [Prospect] {
+        var people = [Prospect]()
+        
         switch filter {
         case .none:
-            return prospects.people
+            people = prospects.people
             
         case .contacted:
-            return prospects.people.filter { $0.isContacted }
+            people = prospects.people.filter { $0.isContacted }
             
         case .uncontacted:
-            return prospects.people.filter { !$0.isContacted }
+            people = prospects.people.filter { !$0.isContacted }
         }
+        
+        if filterByName {
+            people.sort(by: <)
+        }
+        
+        return people
     }
     
     var body: some View {
         NavigationView {
             List {
                 ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            
+                            Text(prospect.emailAddess)
+                                .foregroundColor(.secondary)
+                        }
                         
-                        Text(prospect.emailAddess)
-                            .foregroundColor(.secondary)
+                        if filter == .none {
+                            Spacer()
+                            
+                            Image(systemName: prospect.isContacted ? "person.crop.circle.badge.plus" : "person.crop.circle.badge.minus")
+                                .foregroundColor(prospect.isContacted ? .blue : .orange)
+                        }
                     }
                     .contextMenu {
                         Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
@@ -69,12 +89,20 @@ struct ProspectsView: View {
                 }
             }
             .navigationTitle(title)
-            .navigationBarItems(trailing: Button(action: {
-                isShowingScanner = true
-            }) {
-                Image(systemName: "qrcode.viewfinder")
-                Text("Scan")
-            })
+            .navigationBarItems(
+                leading: Button(action: {
+                    isShowingActionSheet = true
+                }) {
+                    Text("Sort")
+                    Image(systemName: "arrow.up.arrow.down")
+                    
+                },
+                trailing: Button(action: {
+                    isShowingScanner = true
+                }) {
+                    Image(systemName: "qrcode.viewfinder")
+                    Text("Scan")
+                })
             .sheet(isPresented: $isShowingScanner) {
                 CodeScannerView(
                     codeTypes: [.qr],
@@ -82,6 +110,28 @@ struct ProspectsView: View {
                     completion: handleScan
                 )
             }
+            .actionSheet(isPresented: $isShowingActionSheet) {
+                ActionSheet(
+                    title: Text("Filter prospects"),
+                    message: Text("How would you like to filter your prospects?"),
+                    buttons: [
+                        .default(
+                            Text("By Name"), action: {
+                                filterByName = true
+                            }
+                        ),
+                        .default(
+                            Text("By Most Recent"), action: {
+                                filterByName = false
+                            }
+                        ),
+                        .cancel(
+                            Text("Cancel")
+                        )
+                    ]
+                )
+            }
+
         }
     }
     

@@ -14,6 +14,16 @@ final class Prospect: Identifiable, Codable {
     fileprivate(set) var isContacted = false
 }
 
+extension Prospect: Comparable {
+    static func < (lhs: Prospect, rhs: Prospect) -> Bool {
+        lhs.name < rhs.name
+    }
+    
+    static func == (lhs: Prospect, rhs: Prospect) -> Bool {
+        lhs.id == rhs.id && lhs.name == rhs.name && lhs.emailAddess == rhs.emailAddess
+    }
+}
+
 final class Prospects: ObservableObject {
     @Published private(set) var people: [Prospect]
     private static let saveKey = "SavedData"
