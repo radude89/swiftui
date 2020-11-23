@@ -12,6 +12,7 @@
 		F70A85F3256390B400D37847 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A85F2256390B400D37847 /* Card.swift */; };
 		F70A85F62563917500D37847 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70A85F52563917500D37847 /* CardView.swift */; };
 		F70ECF3525624BB800C6CBC9 /* AllowsHitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70ECF3425624BB800C6CBC9 /* AllowsHitTestView.swift */; };
+		F716A080256B830C0014C35D /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F716A07F256B830C0014C35D /* EditCardView.swift */; };
 		F71BD9A52562413B00FC88C6 /* FlashzillaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BD9A42562413B00FC88C6 /* FlashzillaApp.swift */; };
 		F71BD9A72562413B00FC88C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BD9A62562413B00FC88C6 /* ContentView.swift */; };
 		F71BD9A92562413B00FC88C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F71BD9A82562413B00FC88C6 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 		F70A85F2256390B400D37847 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		F70A85F52563917500D37847 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		F70ECF3425624BB800C6CBC9 /* AllowsHitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllowsHitTestView.swift; sourceTree = "<group>"; };
+		F716A07F256B830C0014C35D /* EditCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
 		F71BD9A12562413B00FC88C6 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F71BD9A42562413B00FC88C6 /* FlashzillaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashzillaApp.swift; sourceTree = "<group>"; };
 		F71BD9A62562413B00FC88C6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				F71BD9A42562413B00FC88C6 /* FlashzillaApp.swift */,
 				F71BD9A62562413B00FC88C6 /* ContentView.swift */,
 				F70A85F52563917500D37847 /* CardView.swift */,
+				F716A07F256B830C0014C35D /* EditCardView.swift */,
 				F71BD9A82562413B00FC88C6 /* Assets.xcassets */,
 				F71BD9AD2562413B00FC88C6 /* Info.plist */,
 				F71BD9B42562415E00FC88C6 /* Exercises */,
@@ -176,6 +179,7 @@
 				F71BD9A72562413B00FC88C6 /* ContentView.swift in Sources */,
 				F70A85F62563917500D37847 /* CardView.swift in Sources */,
 				F71BD9BA2562446F00FC88C6 /* DragAndScaleView.swift in Sources */,
+				F716A080256B830C0014C35D /* EditCardView.swift in Sources */,
 				F71BD9A52562413B00FC88C6 /* FlashzillaApp.swift in Sources */,
 				F70A85F025638F8A00D37847 /* AccessibilityView.swift in Sources */,
 				F71BD9B72562441A00FC88C6 /* MultipleGesturesView.swift in Sources */,
