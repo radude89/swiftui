@@ -20,6 +20,7 @@
 		F71BD9B72562441A00FC88C6 /* MultipleGesturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BD9B62562441A00FC88C6 /* MultipleGesturesView.swift */; };
 		F71BD9BA2562446F00FC88C6 /* DragAndScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BD9B92562446F00FC88C6 /* DragAndScaleView.swift */; };
 		F71BD9BD2562474B00FC88C6 /* HapticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71BD9BC2562474B00FC88C6 /* HapticsView.swift */; };
+		F7788DA6256CC1580065507B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7788DA5256CC1580065507B /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F71BD9B62562441A00FC88C6 /* MultipleGesturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleGesturesView.swift; sourceTree = "<group>"; };
 		F71BD9B92562446F00FC88C6 /* DragAndScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragAndScaleView.swift; sourceTree = "<group>"; };
 		F71BD9BC2562474B00FC88C6 /* HapticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsView.swift; sourceTree = "<group>"; };
+		F7788DA5256CC1580065507B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				F71BD9A62562413B00FC88C6 /* ContentView.swift */,
 				F70A85F52563917500D37847 /* CardView.swift */,
 				F716A07F256B830C0014C35D /* EditCardView.swift */,
+				F7788DA5256CC1580065507B /* SettingsView.swift */,
 				F71BD9A82562413B00FC88C6 /* Assets.xcassets */,
 				F71BD9AD2562413B00FC88C6 /* Info.plist */,
 				F71BD9B42562415E00FC88C6 /* Exercises */,
@@ -182,6 +185,7 @@
 				F716A080256B830C0014C35D /* EditCardView.swift in Sources */,
 				F71BD9A52562413B00FC88C6 /* FlashzillaApp.swift in Sources */,
 				F70A85F025638F8A00D37847 /* AccessibilityView.swift in Sources */,
+				F7788DA6256CC1580065507B /* SettingsView.swift in Sources */,
 				F71BD9B72562441A00FC88C6 /* MultipleGesturesView.swift in Sources */,
 				F71BD9BD2562474B00FC88C6 /* HapticsView.swift in Sources */,
 			);

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 extension View {
     func stacked(at position: Int, in total: Int) -> some View {
@@ -18,10 +19,20 @@ struct ContentView: View {
     @Environment(\.accessibilityDifferentiateWithoutColor) var differentiateWithoutColor
     @Environment(\.accessibilityEnabled) var accessibilityEnabled
     
+    private enum SheetType {
+        case edit
+        case settings
+        case none
+    }
+    
     @State private var cards: [Card] = []
     @State private var timeRemaining = 100
     @State private var isActive = true
-    @State private var showingEditScreen = false
+    @State private var showingSheet = false
+    @State private var sheetType: SheetType = .none
+    @State private var showingTimeRunOut = false
+    @State private var cardBackToDeck = false
+    @State private var engine: CHHapticEngine?
     
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
         
@@ -46,9 +57,9 @@ struct ContentView: View {
                 
                 ZStack {
                     ForEach(0..<cards.count, id: \.self) { index in
-                        CardView(card: cards[index]) {
+                        CardView(card: cards[index]) { result in
                             withAnimation {
-                                removeCard(at: index)
+                                removeCard(at: index, successfulAnswer: result)
                             }
                         }
                         .stacked(at: index, in: cards.count)
@@ -58,7 +69,7 @@ struct ContentView: View {
                 }
                 .allowsHitTesting(timeRemaining > 0)
                 
-                if cards.isEmpty {
+                if !isActive && cards.isEmpty {
                     Button("Start again", action: resetCards)
                         .padding()
                         .background(Color.white)
@@ -68,18 +79,32 @@ struct ContentView: View {
             }
             
             VStack {
-                HStack {
+                HStack(spacing: 20) {
                     Spacer()
                     
                     Button(action: {
-                        showingEditScreen = true
+                        sheetType = .edit
+                        showingSheet = true
                     }) {
                         Image(systemName: "plus.circle")
                             .padding()
                             .background(Color.black.opacity(0.7))
                             .clipShape(Circle())
                     }
-                    .padding(.trailing, 100)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        sheetType = .settings
+                        showingSheet = true
+                    }) {
+                        Image(systemName: "gear")
+                            .padding()
+                            .background(Color.black.opacity(0.7))
+                            .clipShape(Circle())
+                    }
+                    
+                    Spacer()
                 }
                 
                 Spacer()
@@ -87,6 +112,24 @@ struct ContentView: View {
             .foregroundColor(.white)
             .font(.largeTitle)
             .padding()
+            
+            if showingTimeRunOut {
+                VStack {
+                    Text("Time run out!")
+                        .font(.largeTitle)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 5)
+                        .background(
+                            Capsule()
+                                .fill(Color.green)
+                                .opacity(0.75)
+                        )
+                        .onAppear(perform: performHaptics)
+                    
+                    Spacer()
+                }
+            }
             
             if differentiateWithoutColor || accessibilityEnabled {
                 VStack {
@@ -97,7 +140,7 @@ struct ContentView: View {
                         
                         Button(action: {
                             withAnimation {
-                                removeCard(at: cards.count - 1)
+                                removeCard(at: cards.count - 1, successfulAnswer: false)
                             }
                         }) {
                             Image(systemName: "xmark.circle")
@@ -112,7 +155,7 @@ struct ContentView: View {
                         
                         Button(action : {
                             withAnimation {
-                                removeCard(at: cards.count - 1)
+                                removeCard(at: cards.count - 1, successfulAnswer: true)
                             }
                         }) {
                             Image(systemName: "checkmark.circle")
@@ -136,6 +179,8 @@ struct ContentView: View {
             
             if timeRemaining > 0 {
                 timeRemaining -= 1
+            } else if timeRemaining == 0 {
+                showingTimeRunOut = true
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
@@ -146,20 +191,33 @@ struct ContentView: View {
                 isActive = true
             }
         }
-        .sheet(isPresented: $showingEditScreen, onDismiss: resetCards) {
-            EditCardView()
+        .sheet(isPresented: $showingSheet, onDismiss: resetCards) {
+            switch sheetType {
+            case .settings:
+                SettingsView(cardBackToDeck: $cardBackToDeck)
+                
+            case .edit:
+                EditCardView()
+                
+            default:
+                EmptyView()
+            }
         }
         .onAppear(perform: resetCards)
     }
     
-    private func removeCard(at index: Int) {
-        guard index > 0 else {
+    private func removeCard(at index: Int, successfulAnswer: Bool) {
+        guard index >= 0 else {
             return
         }
         
-        cards.remove(at: index)
+        let card = cards.remove(at: index)
         
-        if cards.isEmpty {
+        if cardBackToDeck && successfulAnswer == false {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5)  {
+                cards.insert(card, at: 0)
+            }
+        } else if cards.isEmpty {
             isActive = false
         }
     }
@@ -168,6 +226,7 @@ struct ContentView: View {
         cards = [Card](repeating: Card.example, count: 10)
         timeRemaining = 100
         isActive = true
+        showingTimeRunOut = false
         loadData()
     }
     
@@ -177,6 +236,43 @@ struct ContentView: View {
         }
         
         cards = decoded
+    }
+    
+    private func performHaptics() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
+            return
+        }
+        
+        loadHapticsEngine()
+        
+        var events = [CHHapticEvent]()
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        events.append(event)
+        
+        do {
+            let pattern = try CHHapticPattern(events: events, parameters: [])
+            let player = try engine?.makePlayer(with: pattern)
+            try player?.start(atTime: 0)
+        } catch {
+            print("Failed to play pattern: \(error.localizedDescription)")
+        }
+        
+        resetCards()
+    }
+    
+    private func loadHapticsEngine() {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
+            return
+        }
+        
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the haptics engine: \(error.localizedDescription)")
+        }
     }
 }
 
