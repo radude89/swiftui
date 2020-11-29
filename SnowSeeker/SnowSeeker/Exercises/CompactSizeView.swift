@@ -7,9 +7,27 @@
 
 import SwiftUI
 
-struct CompactSizeView: View {
+struct UserView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Group {
+            Text("Name: Radu")
+            Text("Country: Romania")
+            Text("Pets: Lola, Fifi")
+        }
+    }
+}
+
+struct CompactSizeView: View {
+    @Environment(\.horizontalSizeClass) var sizeClass
+    
+    var body: some View {
+        Group {
+            if sizeClass == .compact {
+                VStack(content: UserView.init)
+            } else {
+                HStack(content: UserView.init)
+            }
+        }
     }
 }
 
